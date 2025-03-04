@@ -5,7 +5,8 @@
 
 # Secrets
 .env
-
+pdf_store/
+chroma_db/
 # User-specific files
 *.rsuser
 *.suo
