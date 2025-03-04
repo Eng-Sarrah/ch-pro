@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "When I can use past simple?"
+    },
+    {
+        "role": "assistant",
+        "content": "{\"detail\":\"Connection error.\"}"
+    }
+]
