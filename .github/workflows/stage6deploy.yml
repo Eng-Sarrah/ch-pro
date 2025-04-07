@@ -47,4 +47,4 @@ jobs:
           --force-update \
           --publisher Microsoft.Azure.Extensions \
           --settings '{"fileUris": []}' \
-          --protected-settings @.githup/azure-settings.json
+          --protected-settings @.github/azure-settings.json
