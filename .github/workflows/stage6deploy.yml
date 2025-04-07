@@ -36,7 +36,7 @@ jobs:
       uses: azure/login@v2.2.0
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+        
     # Update the VM with secure token passing
     - name: Azure VM Update
       run: |
