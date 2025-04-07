@@ -47,4 +47,7 @@ jobs:
           --force-update \
           --publisher Microsoft.Azure.Extensions \
           --settings '{"fileUris": []}' \
-          --protected-settings @.github/azure-settings.json
+          --protected-settings "@.github/azure-settings.json"
+          
+env:
+    TOKEN: ${{ secrets.TOKEN }}
