@@ -10,34 +10,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    #Checkout the repository
+    # Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v4
 
-    #Set up Python environment
+    # Set up Python environment
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
         cache: 'pip'  
 
-    #Install dependencies
+    # Install dependencies
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
 
-    #Run tests
+    # Run tests
     - name: Run tests
       run: |
-        echo "Run tests"
+        # Replace this with actual test commands
+        pytest
 
-    #Login to Azure
+    # Login to Azure
     - name: Azure Login
       uses: azure/login@v2.2.0
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
-    #Update the VM with secure token passing
+    # Update the VM with secure token passing
     - name: Azure VM Update
       run: |
         az vm extension set \
