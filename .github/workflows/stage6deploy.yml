@@ -38,13 +38,17 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     # Update the VM with secure token passing
-    - name: Azure VM Update
+    - name: Azure VMSS Update
       run: |
-        az vm extension set \
+        az vmss extension set \
           --resource-group ${{ secrets.RESOURCE_GROUP }} \
-          --vm-name ${{ secrets.VM_NAME }} \
+          --vmss-name ${{ secrets.VM_NAME }} \
           --name CustomScript \
           --force-update \
           --publisher Microsoft.Azure.Extensions \
+          --version 2.1 \
           --settings '{"fileUris": []}' \
-          --protected-settings '{"commandToExecute": "export GITHUB_TOKEN=${{ secrets.TOKEN }} && sudo -u azureuser bash /home/azureuser/ch-pro/update_app.sh"}'
+          --protected-settings "@.github/azure-settings.json"
+          
+env:
+    TOKEN: ${{ secrets.TOKEN }}
