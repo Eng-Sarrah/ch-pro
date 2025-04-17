@@ -67,6 +67,7 @@ The chatbot enables users to upload PDF documents and interact with them through
 
 🧭 Architecture Diagram
 The following diagram illustrates the overall cloud-based architecture of the chatbot application and how the components interact in a secure, scalable, and efficient manner. 🧱☁️
+![image](https://github.com/user-attachments/assets/7ed4dc22-54b1-4e24-9ae1-c87359f442ed)
 
 ---
 
@@ -82,16 +83,11 @@ The following diagram illustrates the overall cloud-based architecture of the ch
 ---
 
 📁 Project Structure
+- `app/backend.py` – FastAPI backend code  
+- `streamlit_app/chatbot.py` – Streamlit frontend code  
+- `.github/workflows/stage6deploy.yml` – GitHub Actions for CI/CD  
+- `requirements.txt` – Project dependencies  
+- `setup.sh` – Script for environment setup  
+- `update_app.sh` – Script to update the app  
+- `README.md` – Project documentation  
 
-📦 chatbot-project/
-├── app/               # FastAPI backend
-│   └── backend.py     # Latest updates
-├── streamlit_app/     # Streamlit frontend
-│   └── chatbot.py     # Latest updates
-├── .github/           # CI/CD using GitHub Actions
-│   └── workflows/
-│       └── stage6deploy.yml  # Latest updates on deployment
-├── requirements.txt   # Required dependencies
-├── setup.sh           # Environment setup
-├── update_app.sh      # Update script
-└── README.md
