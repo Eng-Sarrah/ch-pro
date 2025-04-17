@@ -1,4 +1,4 @@
-##🤖 Cloud-based Intelligent Chatbot
+## 🤖 Cloud-based Intelligent Chatbot
 
 A cloud-native intelligent chatbot that retrieves accurate, context-aware answers from PDF documents using Retrieval-Augmented Generation (RAG). Built with FastAPI and Streamlit, deployed on Microsoft Azure with scalability, security, and best practices for CI/CD in mind. ☁️
 
@@ -12,7 +12,7 @@ The chatbot enables users to upload PDF documents and interact with them through
 
 ---
 
-#✨ Key Features
+# ✨ Key Features
 
 - 🔍 Retrieval-Augmented Generation (RAG) using [ChromaDB]: Accurate answers based on embedded content in PDFs.
 - ⚙️ Flexible architecture: Frontend using [Streamlit] and backend using [FastAPI].
@@ -23,7 +23,7 @@ The chatbot enables users to upload PDF documents and interact with them through
 
 ---
 
-#🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 | Layer               | Technology                            |
 |---------------------|---------------------------------------|
@@ -39,7 +39,7 @@ The chatbot enables users to upload PDF documents and interact with them through
 
 ---
 
-#🕒 Development Timeline
+# 🕒 Development Timeline
 
 🧪 Stage 1–4: Local Application Development
 
@@ -54,7 +54,7 @@ The chatbot enables users to upload PDF documents and interact with them through
 
 ---
 
-#☁️ Stage 5–6.5: Cloud Deployment & Automation
+# ☁️ Stage 5–6.5: Cloud Deployment & Automation
 
 | Stage | Description |
 |-------|-------------|
@@ -64,13 +64,13 @@ The chatbot enables users to upload PDF documents and interact with them through
 | 6.5   | Enhanced security with Azure Key Vault |
 | 🔄    | Automated deployment using Terraform and GitHub Actions |
 
-🧭 Architecture Diagram
+# 🧭 Architecture Diagram
 The following diagram illustrates the overall cloud-based architecture of the chatbot application and how the components interact in a secure, scalable, and efficient manner. 🧱☁️
 ![image](https://github.com/user-attachments/assets/7ed4dc22-54b1-4e24-9ae1-c87359f442ed)
 
 ---
 
-#⚙️ How the Project Works (Behind the Scenes)
+# ⚙️ How the Project Works (Behind the Scenes)
 
 1. 📄 The user uploads a PDF via the Streamlit interface.
 2. 📚 The content is converted into embeddings using Chroma.
@@ -81,7 +81,7 @@ The following diagram illustrates the overall cloud-based architecture of the ch
 
 ---
 
-#📁 Project Structure
+# 📁 Project Structure
 - `app/backend.py` – FastAPI backend code  
 - `streamlit_app/chatbot.py` – Streamlit frontend code  
 - `.github/workflows/stage6deploy.yml` – GitHub Actions for CI/CD  
