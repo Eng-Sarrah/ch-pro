@@ -1,5 +1,4 @@
-# ch-pro
-إليك النص مع إضافة الإيموجي:
+# ch-
 🤖 Cloud-based Intelligent Chatbot
 
 A cloud-native intelligent chatbot that retrieves accurate, context-aware answers from PDF documents using Retrieval-Augmented Generation (RAG). Built with FastAPI and Streamlit, deployed on Microsoft Azure with scalability, security, and best practices for CI/CD in mind. ☁️
