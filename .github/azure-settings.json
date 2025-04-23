@@ -1,3 +1,0 @@
-{
-  "commandToExecute": "export GITHUB_TOKEN=$TOKEN && sudo -u azureuser bash /home/azureuser/ch-pro/update_app.sh"
-}
