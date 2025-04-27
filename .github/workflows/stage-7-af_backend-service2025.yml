@@ -75,7 +75,7 @@ jobs:
 
       - name: Set Application Settings
         run: |
-          az functionapp config appsettings set --name backend-service2025 --resource-group stage7RG --settings "FUNCTIONS_WORKER_RUNTIME=python" "KEY_VAULT_NAME=mykeystage700" 
+          az functionapp config appsettings set --name backend-service2025 --resource-group stage7RG --settings "FUNCTIONS_WORKER_RUNTIME=python" "KEY_VAULT_NAME=mykeystage700" "APPINSIGHTS_INSTRUMENTATIONKEY=azurerm_application_insights.ai.instrumentation_key" 
     
       - name: 'Deploy to Azure Functions'
         uses: Azure/functions-action@v1
