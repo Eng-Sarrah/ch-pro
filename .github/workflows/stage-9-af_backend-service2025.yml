@@ -35,12 +35,12 @@ jobs:
           source venv/bin/activate
 
       - name: Install dependencies
-        run: pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+        run: pip install -r requirements.txt
 
       # Optional: Add step to run tests here
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./* .python_packages/*
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -48,6 +48,7 @@ jobs:
           name: python-app
           path: |
             release.zip
+            !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -68,13 +69,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_87B355DD8556405F8D00743EE58DA461 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_120D171B1BCD4CF5AB269E4443CD2470 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EEA27283D97A4360A6BEA6F0E5325BFB }}
-
-      - name: Set Application Settings
-        run: |
-          az functionapp config appsettings set --name backend-service2025 --resource-group stage9-RG --settings "COSMOSDB_CONNECTION_STRING=${{ secrets.COSMOSDB_CONNECTION_STRING }}" "FUNCTIONS_WORKER_RUNTIME=python" "KEY_VAULT_NAME=mykey-stage9" "APPINSIGHTS_INSTRUMENTATIONKEY=azurerm_application_insights.ai.instrumentation_key"
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8184036FB6C84C249F9415E035E0709A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DCEAF1EDAA11472FB1700B76DA8EE870 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_D04E9D9A7BF04922A1461ACC6AB49C0F }}
 
       - name: 'Deploy to Azure Functions'
         uses: Azure/functions-action@v1
@@ -83,5 +80,4 @@ jobs:
           app-name: 'backend-service2025'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          scm-do-build-during-deployment: true
-          enable-oryx-build: true
+          
