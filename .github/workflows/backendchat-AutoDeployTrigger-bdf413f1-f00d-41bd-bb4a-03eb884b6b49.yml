@@ -1,0 +1,48 @@
+name: Trigger auto deployment for backendchat
+
+# When this action will be executed
+on:
+  # Automatically trigger it when detected changes in repo
+  push:
+    branches: 
+      [ stage-10 ]
+    paths:
+    - '**'
+    - '.github/workflows/backendchat-AutoDeployTrigger-bdf413f1-f00d-41bd-bb4a-03eb884b6b49.yml'
+
+  # Allow manual trigger 
+  workflow_dispatch:      
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write #This is required for requesting the OIDC JWT Token
+      contents: read #Required when GH token is used to authenticate with private repo
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.BACKENDCHAT_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.BACKENDCHAT_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.BACKENDCHAT_AZURE_SUBSCRIPTION_ID }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }}
+          _dockerfilePathKey_: _dockerfilePath_
+          registryUrl: chatbot10.azurecr.io
+          registryUsername: ${{ secrets.BACKENDCHAT_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.BACKENDCHAT_REGISTRY_PASSWORD }}
+          containerAppName: backendchat
+          resourceGroup: stage9-RG
+          imageToBuild: chatbot10.azurecr.io/backendchat:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
